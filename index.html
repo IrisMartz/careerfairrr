@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSU Career Fair Guests</title>
+    <style>
+        /* BSU Brand Colors and Variables */
+        :root {
+            --cardinal-red: #BA0C2F;
+            --white: #FFFFFF;
+            --black: #000000;
+            --dark-gray: #54585A;
+            --light-bg: #F4F4F4;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--cardinal-red);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 8px solid var(--black);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Search Interaction */
+        .search-container {
+            margin-bottom: 30px;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 15px;
+            font-size: 1rem;
+            border: 2px solid var(--dark-gray);
+            border-radius: 8px;
+            outline: none;
+        }
+
+        #searchInput:focus {
+            border-color: var(--cardinal-red);
+        }
+
+        /* Responsive Guest Grid */
+        .guest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .guest-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 4px;
+            border-top: 5px solid var(--cardinal-red);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .guest-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .industry-tag {
+            display: inline-block;
+            background: var(--dark-gray);
+            color: var(--white);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .company-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--black);
+            margin: 0 0 10px 0;
+        }
+
+        .details {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Career Fair Guests</h1>
+    <p>Hospitality • Construction Management • Fashion</p>
+</header>
+
+<div class="container">
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by company or industry..." onkeyup="searchFunction()">
+    </div>
+
+    <div class="guest-grid" id="guestGrid">
+        <div class="guest-card">
+            <span class="industry-tag">Hospitality</span>
+            <h2 class="company-name">Marriott International</h2>
+            <p class="details">Looking for management trainees and event coordinators.</p>
+        </div>
+        <div class="guest-card">
+            <span class="industry-tag">Construction</span>
+            <h2 class="company-name">Hensel Phelps</h2>
+            <p class="details">Recruiting for field engineers and safety coordinators.</p>
+        </div>
+        <div class="guest-card">
+            <span class="industry-tag">Fashion</span>
+            <h2 class="company-name">LVMH Group</h2>
+            <p class="details">Seeking retail excellence leads and merchandising interns.</p>
+        </div>
+        </div>
+</div>
+
+<footer>
+    &copy; 2026 Ball State University - Career Fair Marketing Team
+</footer>
+
+<script>
+    function searchFunction() {
+        var input = document.getElementById("searchInput").value.toLowerCase();
+        var grid = document.getElementById("guestGrid");
+        var cards = grid.getElementsByClassName("guest-card");
+
+        for (var i = 0; i < cards.length; i++) {
+            var text = cards[i].innerText.toLowerCase();
+            if (text.indexOf(input) > -1) {
+                cards[i].classList.remove("hidden");
+            } else {
+                cards[i].classList.add("hidden");
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
