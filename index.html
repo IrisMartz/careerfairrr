@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSU Career Fair Guests</title>
+    <title>BSU Career Fair Guests & Panels</title>
     <style>
         /* BSU Brand Colors and Variables */
         :root {
@@ -38,37 +38,56 @@
             letter-spacing: 2px;
         }
 
-        header p {
-            margin-top: 10px;
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
-
         .container {
             max-width: 1100px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        /* Search Interaction */
-        .search-container {
-            margin-bottom: 30px;
+        /* Panel Section Styling */
+        .section-title {
+            border-bottom: 3px solid var(--cardinal-red);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--black);
         }
 
+        .panel-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .panel-card {
+            background: var(--white);
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .panel-time {
+            display: inline-block;
+            background: var(--cardinal-red);
+            color: var(--white);
+            padding: 5px 15px;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        /* Search & Grid Styling */
+        .search-container { margin-bottom: 30px; }
         #searchInput {
             width: 100%;
             padding: 15px;
             font-size: 1rem;
             border: 2px solid var(--dark-gray);
             border-radius: 8px;
-            outline: none;
         }
 
-        #searchInput:focus {
-            border-color: var(--cardinal-red);
-        }
-
-        /* Responsive Guest Grid */
         .guest-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -82,10 +101,6 @@
             border-top: 5px solid var(--cardinal-red);
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             transition: transform 0.2s ease;
-        }
-
-        .guest-card:hover {
-            transform: translateY(-5px);
         }
 
         .industry-tag {
@@ -102,34 +117,52 @@
         .company-name {
             font-size: 1.4rem;
             font-weight: bold;
-            color: var(--black);
             margin: 0 0 10px 0;
         }
 
-        .details {
-            font-size: 0.95rem;
-            color: #444;
-        }
+        .details { font-size: 0.95rem; color: #444; }
+        .hidden { display: none; }
+        footer { text-align: center; padding: 40px; color: var(--dark-gray); font-size: 0.8rem; }
 
-        .hidden {
-            display: none;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--dark-gray);
-            font-size: 0.8rem;
+        @media (max-width: 768px) {
+            .panel-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Career Fair Guests</h1>
+    <h1>Career Fair Guests & Panels</h1>
 </header>
 
 <div class="container">
+    
+    <h2 class="section-title">Speaker Panels</h2>
+    <div class="panel-container">
+        <div class="panel-card">
+            <div class="panel-time">9:30 AM</div>
+            <h3>Hospitality & Leadership Panel</h3>
+            <p class="details">
+                <strong>Panelists:</strong><br>
+                • Gina Gervais (Centier Bank)<br>
+                • Matthew Smith (The Alexander Hotel)<br>
+                • Blake Fogelsong (Clancey’s Hospitality)
+            </p>
+        </div>
+
+        <div class="panel-card">
+            <div class="panel-time:">10:30 AM</div>
+            <h3>Innovation & Industry Trends</h3>
+            <p class="details">
+                <strong>Panelists:</strong><br>
+                • Edward Balint (Aramark)<br>
+                • Kerstin Sommer-Raza (Hilton Garden Inn)<br>
+                • Noah Krebsbach (Drury Hotels)
+            </p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Attending Employers</h2>
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search by company or industry..." onkeyup="searchFunction()">
     </div>
@@ -158,8 +191,7 @@
         <div class="guest-card">
             <span class="industry-tag">Hospitality</span>
             <h2 class="company-name">Ivy Hospitality</h2>
-            <p class="details">Laura Koenker - General Manager, Hampton Inn & Suites Muncie/Area
-General Manager</p>
+            <p class="details">Laura Koenker - General Manager, Hampton Inn & Suites Muncie/Area General Manager</p>
         </div>
         <div class="guest-card">
             <span class="industry-tag">Hospitality</span>
@@ -168,15 +200,15 @@ General Manager</p>
         </div>
         <div class="guest-card">
             <span class="industry-tag">Hospitality</span>
-            <h2 class="company-name">Hilton Garden Inn Indianapolis Northeast/Fishers and Home2 Suites by Hilton Indianapolis Keystone</h2>
-            <p class="details">Kerstin Sommer-Raza, Dual Director of Sales, Dual Director of Sales</p>
+            <h2 class="company-name">Hilton Garden Inn</h2>
+            <p class="details">Kerstin Sommer-Raza, Dual Director of Sales</p>
         </div>
         <div class="guest-card">
             <span class="industry-tag">Hospitality</span>
             <h2 class="company-name">Clancey’s Hospitality</h2>
             <p class="details">Blake Fogelsong, Owner / Director of Operations</p>
         </div>
-        </div>
+    </div>
 </div>
 
 <footer>
